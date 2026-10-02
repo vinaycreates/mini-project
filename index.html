@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyHub - Student Notes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span>Study</span>Hub
+        </div>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#notes">Notes</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="login-btn" onclick="openLogin()">
+            Login
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO STUDYHUB</p>
+
+            <h1>
+                Your Study Material,
+                <span>All in One Place.</span>
+            </h1>
+
+            <p class="hero-text">
+                Find notes, study materials and resources for your
+                subjects. Learn smarter and keep everything organized.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#notes" class="primary-btn">
+                    Explore Notes
+                </a>
+
+                <a href="#subjects" class="secondary-btn">
+                    View Subjects
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="card-icon">📚</div>
+
+            <h3>Study Material</h3>
+
+            <p>
+                Notes, PDFs and useful resources
+                for students.
+            </p>
+
+            <div class="mini-stats">
+
+                <div>
+                    <strong>50+</strong>
+                    <span>Notes</span>
+                </div>
+
+                <div>
+                    <strong>8</strong>
+                    <span>Subjects</span>
+                </div>
+
+                <div>
+                    <strong>100+</strong>
+                    <span>Students</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SUBJECTS ================= -->
+
+    <section class="section" id="subjects">
+
+        <div class="section-heading">
+
+            <p>LEARN & EXPLORE</p>
+
+            <h2>Popular Subjects</h2>
+
+            <span>
+                Explore study material according to your subjects.
+            </span>
+
+        </div>
+
+
+        <div class="subject-grid">
+
+            <div class="subject-card">
+                <div class="subject-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript and web technologies.</p>
+                <button onclick="showMessage('Web Development')">
+                    View Notes →
+                </button>
+            </div>
+
+
+            <div class="subject-card">
+                <div class="subject-icon">☕</div>
+                <h3>Java Programming</h3>
+                <p>Java fundamentals, OOP and programming concepts.</p>
+                <button onclick="showMessage('Java Programming')">
+                    View Notes →
+                </button>
+            </div>
+
+
+            <div class="subject-card">
+                <div class="subject-icon">🗄️</div>
+                <h3>Database Management</h3>
+                <p>SQL, databases, tables and database concepts.</p>
+                <button onclick="showMessage('Database Management')">
+                    View Notes →
+                </button>
+            </div>
+
+
+            <div class="subject-card">
+                <div class="subject-icon">📊</div>
+                <h3>Data Structures</h3>
+                <p>Arrays, stacks, queues, linked lists and more.</p>
+                <button onclick="showMessage('Data Structures')">
+                    View Notes →
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= NOTES ================= -->
+
+    <section class="notes-section" id="notes">
+
+        <div class="section-heading">
+
+            <p>STUDY MATERIAL</p>
+
+            <h2>Latest Notes</h2>
+
+            <span>
+                Find useful notes and resources for your studies.
+            </span>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search notes or subjects..."
+                onkeyup="searchNotes()"
+            >
+
+            <button onclick="searchNotes()">
+                🔍 Search
+            </button>
+
+        </div>
+
+
+        <!-- NOTES -->
+
+        <div class="notes-grid" id="notesGrid">
+
+            <div class="note-card">
+
+                <div class="note-top">
+                    <span class="pdf">PDF</span>
+                    <span class="tag">Java</span>
+                </div>
+
+                <h3>Java Programming Basics</h3>
+
+                <p>
+                    Introduction to Java, variables, data types,
+                    operators and basic programs.
+                </p>
+
+                <div class="note-bottom">
+
+                    <span>📄 12 Pages</span>
+
+                    <button onclick="downloadNote('Java Programming Basics')">
+                        Download
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="note-card">
+
+                <div class="note-top">
+                    <span class="pdf">PDF</span>
+                    <span class="tag">Web</span>
+                </div>
+
+                <h3>HTML & CSS Notes</h3>
+
+                <p>
+                    Learn HTML structure, CSS styling,
+                    layouts and responsive design.
+                </p>
+
+                <div class="note-bottom">
+
+                    <span>📄 18 Pages</span>
+
+                    <button onclick="downloadNote('HTML & CSS Notes')">
+                        Download
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="note-card">
+
+                <div class="note-top">
+                    <span class="pdf">PDF</span>
+                    <span class="tag">DBMS</span>
+                </div>
+
+                <h3>Database Management</h3>
+
+                <p>
+                    Database concepts, SQL commands,
+                    tables and relationships.
+                </p>
+
+                <div class="note-bottom">
+
+                    <span>📄 20 Pages</span>
+
+                    <button onclick="downloadNote('Database Management')">
+                        Download
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="note-card">
+
+                <div class="note-top">
+                    <span class="pdf">PDF</span>
+                    <span class="tag">DSA</span>
+                </div>
+
+                <h3>Data Structures</h3>
+
+                <p>
+                    Basic data structures including arrays,
+                    stacks, queues and linked lists.
+                </p>
+
+                <div class="note-bottom">
+
+                    <span>📄 25 Pages</span>
+
+                    <button onclick="downloadNote('Data Structures')">
+                        Download
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
+            <p class="small-title">ABOUT STUDYHUB</p>
+
+            <h2>
+                Making Student Resources
+                <span>Easy to Access.</span>
+            </h2>
+
+            <p>
+                StudyHub is a student-focused platform designed to
+                organize and provide easy access to academic notes
+                and study materials.
+            </p>
+
+            <p>
+                Instead of searching through different places for
+                study material, students can find useful resources
+                in one organized platform.
+            </p>
+
+            <div class="about-features">
+
+                <div>
+                    <strong>01</strong>
+                    <span>Easy Access</span>
+                </div>
+
+                <div>
+                    <strong>02</strong>
+                    <span>Organized Notes</span>
+                </div>
+
+                <div>
+                    <strong>03</strong>
+                    <span>Student Friendly</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="section-heading">
+
+            <p>GET IN TOUCH</p>
+
+            <h2>Contact Us</h2>
+
+            <span>
+                Have a question or suggestion? Send us a message.
+            </span>
+
+        </div>
+
+
+        <form class="contact-form" onsubmit="submitContact(event)">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required
+            >
+
+            <textarea
+                id="message"
+                placeholder="Write your message..."
+                rows="5"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= LOGIN POPUP ================= -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="login-box">
+
+            <button class="close-btn" onclick="closeLogin()">
+                ×
+            </button>
+
+            <div class="login-logo">
+                Study<span>Hub</span>
+            </div>
+
+            <h2>Welcome Back</h2>
+
+            <p>Login to access your study materials.</p>
+
+            <form onsubmit="loginUser(event)">
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <small>
+                Backend login will be added later.
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Study<span>Hub</span>
+        </div>
+
+        <p>
+            Student Notes & Study Material Management System
+        </p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#notes">Notes</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 StudyHub. Mini Project.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
